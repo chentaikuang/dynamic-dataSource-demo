@@ -90,8 +90,13 @@ public class UserService {
         return userRepository.findAll(pageable);
     }
 
-    @DataSourceTarget(name="master1")
-    //@DataSourceTarget(name="slave1")
+    /**
+     * 通过注解切换主从库
+     * @param id
+     * @return
+     */
+//    @DataSourceTarget(name="master1")
+    @DataSourceTarget(name="slave1")
     public UserInfo getById(int id) {
         return userRepository.findById(id);
     }

@@ -31,12 +31,22 @@ public class TestController {
         return map;
     }
 
+    /**
+     * http://localhost:8888/test/getById?id=1
+     * @param id
+     * @return
+     */
     @RequestMapping("/getById")
     public Result tips(@RequestParam int id) {
         UserInfo user = userService.getById(id);
         return Result.success(user);
     }
 
+    /**
+     * http://localhost:8888/test/getByName/xiaochen
+     * @param name
+     * @return
+     */
     @GetMapping("/getByName/{name}")
     public Result tips(@PathVariable(value = "name") String name) {
         UserInfo user = userService.getUserByName(name);
